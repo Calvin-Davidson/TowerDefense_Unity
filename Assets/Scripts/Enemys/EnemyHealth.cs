@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyHealth : HealthSystem
 {
-    [SerializeField] private Image _healthbar;
-
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);

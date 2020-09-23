@@ -1,25 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 
 public class PathFollower : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _pathEndReach;
-    [SerializeField] private Path _path;
-    [SerializeField] private float _speed = 5f;
+    [SerializeField] private UnityEvent pathEndReach;
+    [SerializeField] private Path path;
+    [SerializeField] private float speed = 5f;
     
-    void Update()
+    private void Update()
     {
-        if (_path.getCurrentWaypoint().Equals(null)) return;
+        if (path.GetCurrentWayPoint().Equals(null)) return;
+
+        Vector3 targetPos = path.GetCurrentWayPoint().Position;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         
-        Vector3 targetPos = _path.getCurrentWaypoint().Position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
-        float distance = Vector3.Distance(transform.position, targetPos);
         if (transform.position != targetPos) return;
 
-        if (_path.Next()) return;
-        _pathEndReach.Invoke();
+        if (path.Next()) return;
+        pathEndReach.Invoke();
         Destroy(this.gameObject);
     }
 }

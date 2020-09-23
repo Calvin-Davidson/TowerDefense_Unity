@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
-    [SerializeField] private int _secondsBetweenSpawn;
-    [SerializeField] private GameObject _enemy;
-    void Awake()
+    [SerializeField] private int secondsBetweenSpawn;
+    [SerializeField] private GameObject enemy;
+    void Start()
     {
-        StartCoroutine(Timer());
+        Invoke(nameof(Spawn), secondsBetweenSpawn);
     }
-    
-    private IEnumerator Timer()
+
+    private void Spawn()
     {
-        yield return new WaitForSeconds(_secondsBetweenSpawn);
-        _enemy = Instantiate(_enemy, transform.position, Quaternion.identity);
-        StartCoroutine(Timer());
+        enemy = Instantiate(enemy, transform.position, Quaternion.identity);        
     }
 }

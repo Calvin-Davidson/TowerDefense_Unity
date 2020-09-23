@@ -9,8 +9,5 @@ using UnityEngine;
 /// </summary>
 public class Waypoint : MonoBehaviour
 {
-    public Vector3 Position
-    {
-        get { return transform.position; }
-    }
+    public Vector3 Position => transform.position;
 }

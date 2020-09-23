@@ -10,13 +10,13 @@ public class TurretTower : BaseTower
         GameObject target = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            if (Vector3.Distance(obj.transform.position, transform.position) < Range)
+            if (Vector3.Distance(obj.transform.position, transform.position) < range)
             {
                 target = obj;
             }
         }
         if (target == null) return;
 
-        target.GetComponent<HealthSystem>().TakeDamage(Damage);
+        target.GetComponent<HealthSystem>().TakeDamage(damage);
     }
 }

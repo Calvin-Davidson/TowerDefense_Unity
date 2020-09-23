@@ -5,29 +5,29 @@ using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
-    public UnityEvent OnTakeDamage;
-    public UnityEvent OnDie;
+    public UnityEvent onTakeDamage;
+    public UnityEvent onDie;
     
-    [SerializeField] protected float _StartingHealth = 100;
+    [SerializeField] protected float startingHealth = 100;
     protected float CurrentHealth;
     
     void Awake()
     {
-        CurrentHealth = _StartingHealth;
+        CurrentHealth = startingHealth;
     }
     public virtual void TakeDamage(float amount)
     {
         CurrentHealth -= amount;
-        if (CurrentHealth <= 0) OnDie.Invoke();
-        OnTakeDamage.Invoke();
+        if (CurrentHealth <= 0) onDie.Invoke();
+        onTakeDamage.Invoke();
     }
 
-    public float getCurrentHealth()
+    public float GetCurrentHealth()
     {
         return this.CurrentHealth;
     }
-    public float getStartingHealth()
+    public float GetStartingHealth()
     {
-        return this._StartingHealth;
+        return this.startingHealth;
     }
 }

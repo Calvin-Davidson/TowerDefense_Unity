@@ -1,24 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BaseTower : MonoBehaviour
 {
-    [SerializeField] protected int DelayBetweenAttacks = 10;
-    [SerializeField] protected int Damage = 10;
-    [SerializeField] protected float Range = 0f;
+    [SerializeField] protected int delayBetweenAttacks = 10;
+    [SerializeField] protected int damage = 10;
+    [SerializeField] protected float range = 0f;
 
     void Awake()
     {
-        StartCoroutine(AttackTimer());
+        InvokeRepeating(nameof(Attack), 0, delayBetweenAttacks);
     }
     protected virtual void Attack()
     {
     }
-    private IEnumerator AttackTimer()
+
+    
+    
+    
+    public void OnDrawGizmosSelected()
     {
-        yield return new WaitForSeconds(DelayBetweenAttacks);
-        Attack();
-        StartCoroutine(AttackTimer());
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
