@@ -8,22 +8,35 @@ public class BaseTower : MonoBehaviour
 {
     [SerializeField] protected int delayBetweenAttacks = 10;
     [SerializeField] protected int damage = 10;
-    [SerializeField] protected float range = 0f;
+    protected EnemyInRangeChecker EnemyInRangeChecker;
+    protected List<Enemy> Targets;
+
+    private float AttackTimer = 0;
 
     void Awake()
     {
-        InvokeRepeating(nameof(Attack), 0, delayBetweenAttacks);
+        Targets = new List<Enemy>();
+        EnemyInRangeChecker = GetComponent<EnemyInRangeChecker>();
     }
+
+    void Update()
+    {
+        AttackTimer += Time.deltaTime;
+        if (AttackTimer > delayBetweenAttacks)
+        {
+            if (!CanAttack()) return;
+            
+            Attack();
+            AttackTimer = 0;
+        }
+    }
+
     protected virtual void Attack()
     {
     }
 
-    
-    
-    
-    public void OnDrawGizmosSelected()
+    protected virtual bool CanAttack()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, range);
+        return false;
     }
 }

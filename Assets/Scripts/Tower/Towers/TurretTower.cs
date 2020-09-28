@@ -7,16 +7,19 @@ public class TurretTower : BaseTower
 {
     protected override void Attack()
     {
-        GameObject target = null;
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach (var target in Targets)
         {
-            if (Vector3.Distance(obj.transform.position, transform.position) < range)
-            {
-                target = obj;
-            }
+            target.enemyHealth.TakeDamage(damage);
         }
-        if (target == null) return;
+        
+        Targets.Clear();
+    }
 
-        target.GetComponent<HealthSystem>().TakeDamage(damage);
+    protected override bool CanAttack()
+    {
+        Enemy enemy = EnemyInRangeChecker.GetClosestEnemyInRange();
+        if (enemy == null) return false;
+        Targets.Add(enemy);
+        return true;
     }
 }

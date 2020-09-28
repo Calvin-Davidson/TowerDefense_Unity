@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseDragMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject _mainCam;
+    [SerializeField] private GameObject mainCam;
     
     void Update()
     {
@@ -22,8 +23,8 @@ public class MouseDragMovement : MonoBehaviour
             movement.x += xDrag * 100 * Time.deltaTime;
             movement.z = 0;
             movement.y += yDrag * 100 * Time.deltaTime;
-            
-            _mainCam.transform.Translate(movement);        
+
+            mainCam.transform.Translate(movement);
         }
     }
 }

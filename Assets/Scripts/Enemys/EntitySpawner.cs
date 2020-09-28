@@ -13,6 +13,7 @@ public class EntitySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        enemy = Instantiate(enemy, transform.position, Quaternion.identity);        
+        Instantiate(enemy, transform.position, Quaternion.identity);        
+        Invoke(nameof(Spawn), secondsBetweenSpawn);
     }
 }

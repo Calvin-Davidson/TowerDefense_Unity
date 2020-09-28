@@ -11,15 +11,19 @@ using UnityEngine;
     /// </summary>
     public class Path : MonoBehaviour
     {
-        [SerializeField] private List<Waypoint> moveTo = new List<Waypoint>();
+        [SerializeField] private Waypoint[] _waypoints;
         private int _currentWayPoint = 0;
+
+        void Awake()
+        {
+            _waypoints = GameObject.Find("Waypoints").GetComponentsInChildren<Waypoint>();
+        }
         
         public bool Next()
         {
             _currentWayPoint += 1;
-            return (_currentWayPoint < moveTo.Count);
+            return (_currentWayPoint < _waypoints.Length);
         }
-
         public bool Previous()
         {
             _currentWayPoint -= 1;
@@ -28,7 +32,7 @@ using UnityEngine;
         
         public Waypoint GetCurrentWayPoint()
         {
-            if (_currentWayPoint >= moveTo.Count) return null;
-            return moveTo[_currentWayPoint];
+            if (_currentWayPoint >= _waypoints.Length) return null;
+            return _waypoints[_currentWayPoint];
         }
     }
