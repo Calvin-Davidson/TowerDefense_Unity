@@ -11,7 +11,6 @@ public class TurretTower : BaseTower
         {
             target.enemyHealth.TakeDamage(damage);
         }
-        
         Targets.Clear();
     }
 

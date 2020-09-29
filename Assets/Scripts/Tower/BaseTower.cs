@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BaseTower : MonoBehaviour
 {
@@ -22,6 +19,10 @@ public class BaseTower : MonoBehaviour
     void Update()
     {
         AttackTimer += Time.deltaTime;
+
+        Enemy closest = EnemyInRangeChecker.GetClosestEnemyInRange();
+        if (closest != null) RotateToTarget(closest.gameObject.transform.position);
+        
         if (AttackTimer > delayBetweenAttacks)
         {
             if (!CanAttack()) return;
@@ -31,10 +32,17 @@ public class BaseTower : MonoBehaviour
         }
     }
 
+    protected void RotateToTarget(Vector3 location)
+    {
+        Vector3 dir = location - transform.position;
+        dir.y = 0;
+        Quaternion rot = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rot, 8f * Time.deltaTime);
+    }
+
     protected virtual void Attack()
     {
     }
-
     protected virtual bool CanAttack()
     {
         return false;

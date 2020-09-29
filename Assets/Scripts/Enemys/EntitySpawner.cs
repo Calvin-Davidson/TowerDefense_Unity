@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject[] enemies;
     [SerializeField] private int secondsBetweenSpawn;
-    [SerializeField] private GameObject enemy;
     void Start()
     {
         Invoke(nameof(Spawn), secondsBetweenSpawn);
@@ -13,7 +13,7 @@ public class EntitySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(enemy, transform.position, Quaternion.identity);        
+        Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);        
         Invoke(nameof(Spawn), secondsBetweenSpawn);
     }
 }
