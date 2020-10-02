@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BaseTower : MonoBehaviour
 {
     [SerializeField] protected int delayBetweenAttacks = 10;
     [SerializeField] protected int damage = 10;
+    [SerializeField] protected Animator animator;
+    [SerializeField] private bool rotateToTarget = true;
     protected EnemyInRangeChecker EnemyInRangeChecker;
     protected List<Enemy> Targets;
 
@@ -21,7 +24,7 @@ public class BaseTower : MonoBehaviour
         AttackTimer += Time.deltaTime;
 
         Enemy closest = EnemyInRangeChecker.GetClosestEnemyInRange();
-        if (closest != null) RotateToTarget(closest.gameObject.transform.position);
+        if (closest != null && rotateToTarget) RotateToTarget(closest.gameObject.transform.position);
         
         if (AttackTimer > delayBetweenAttacks)
         {
@@ -32,7 +35,7 @@ public class BaseTower : MonoBehaviour
         }
     }
 
-    protected void RotateToTarget(Vector3 location)
+    private void RotateToTarget(Vector3 location)
     {
         Vector3 dir = location - transform.position;
         dir.y = 0;
@@ -46,5 +49,9 @@ public class BaseTower : MonoBehaviour
     protected virtual bool CanAttack()
     {
         return false;
+    }
+    protected virtual void AttackAnimation()
+    {
+        
     }
 }

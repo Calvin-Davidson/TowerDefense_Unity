@@ -20,7 +20,7 @@ public class PathFollower : MonoBehaviour
 
     private void Update()
     {
-        if (path.GetCurrentWayPoint().Equals(null)) return;
+        if (path.GetCurrentWayPoint() == null) return;
         Vector3 entityPos = transform.position;
         Vector3 targetPos = path.GetCurrentWayPoint().Position;
         transform.position = Vector3.MoveTowards(entityPos, targetPos, speed * Time.deltaTime);
@@ -37,7 +37,6 @@ public class PathFollower : MonoBehaviour
 
         if (path.Next()) return;
         pathEndReach.Invoke();
-        Destroy(this.gameObject);
     }
 
 
@@ -45,5 +44,6 @@ public class PathFollower : MonoBehaviour
     {
         pathEndReach.RemoveListener(EndReach);
         GameObject.Find("Player").GetComponent<HealthSystem>().TakeDamage(damage);
+        Destroy(this.gameObject);
     }
 }

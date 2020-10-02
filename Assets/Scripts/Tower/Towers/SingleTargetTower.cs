@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonTower : BaseTower
+public class SingleTargetTower : BaseTower
 {
     protected override void Attack()
     {
-        Enemy[] enemies = EnemyInRangeChecker.GetAllEnemiesInRangeFromLocation(Targets[0].gameObject.transform.position, 1);
-        foreach (var target in enemies)
+        foreach (var target in Targets)
         {
             target.enemyHealth.TakeDamage(damage);
         }

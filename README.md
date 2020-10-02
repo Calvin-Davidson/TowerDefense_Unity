@@ -6,10 +6,10 @@ Dit is een tower defense game, gemaakt in unity voor een school opdracht. het is
   - Pathfollower
   - UnityEvents
   - HealthSystem
+  - Torens plaatsen
 
 # Work in progress
 
-  - Torens plaatsen
   - Start Scherm
   - Victory scherm
   - Gameover scherm

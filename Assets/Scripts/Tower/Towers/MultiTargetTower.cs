@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretTower : BaseTower
+public class MultiTargetTower : BaseTower
 {
     protected override void Attack()
     {
@@ -16,9 +15,9 @@ public class TurretTower : BaseTower
 
     protected override bool CanAttack()
     {
-        Enemy enemy = EnemyInRangeChecker.GetClosestEnemyInRange();
-        if (enemy == null) return false;
-        Targets.Add(enemy);
+        Enemy[] enemies = EnemyInRangeChecker.GetAllEnemiesInRange();
+        if (enemies.Length <= 0) return false;
+        foreach (var e in enemies) Targets.Add(e);
         return true;
     }
 }

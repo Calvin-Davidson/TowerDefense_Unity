@@ -261,7 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7c9ede43244e34781a357997d0a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showWhenMaxHealth: 0
   healthSystem: {fileID: 68974025054678738}
+  backgroundImage: {fileID: 7759232262851979159}
   healthImage: {fileID: 1557286870511303013}
   lerpSpeed: 1.75
 --- !u!1 &6788648144560799922

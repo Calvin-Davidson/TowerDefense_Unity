@@ -6,17 +6,28 @@ using static UnityEngine.Color;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private bool showWhenMaxHealth = true;
     [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] private Image backgroundImage;
     [SerializeField] private Image healthImage;
     [SerializeField] private float lerpSpeed;
 
     void Awake()
     {
         healthSystem.onTakeDamage.AddListener(UpdateUi);
+
+        if (showWhenMaxHealth.Equals(false))
+        {
+            healthImage.enabled = false;
+            backgroundImage.enabled = false;
+        }
     }
 
     private void UpdateUi()
     {
+        healthImage.enabled = true;
+        backgroundImage.enabled = true;
+        
         float currentHealth = healthSystem.GetCurrentHealth();
         float startingHealth = healthSystem.GetStartingHealth();
         float smallHealth = (currentHealth / startingHealth);

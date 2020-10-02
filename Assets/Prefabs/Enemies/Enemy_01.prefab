@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2657949239071962300}
   - component: {fileID: -7786868163610705900}
   m_Layer: 8
-  m_Name: Entity
+  m_Name: Enemy_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   path: {fileID: 2657949239071962245}
   speed: 2
   damage: 5
+  rotate: 0
 --- !u!114 &2657949239071962245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +195,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0019234931, y: 0.0019234931, z: 0.0019234931}
   m_Children:
-  - {fileID: 2657949240165227057}
+  - {fileID: 5349127194931660315}
   m_Father: {fileID: 2657949239071962242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &2657949240165227056
+--- !u!1 &5180732983298235677
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,9 +272,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2657949240165227057}
-  - component: {fileID: 2657949240165227059}
-  - component: {fileID: 2657949240165227058}
+  - component: {fileID: 5349127194931660315}
+  - component: {fileID: 2453901115167326137}
+  - component: {fileID: 1045823931027010758}
   m_Layer: 8
   m_Name: health_background
   m_TagString: Untagged
@@ -281,41 +282,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2657949240165227057
+--- !u!224 &5349127194931660315
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240165227056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 5180732983298235677}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2657949240305192427}
+  - {fileID: 319829604738930328}
   m_Father: {fileID: 2657949239693442311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -104.92}
+  m_AnchoredPosition: {x: 0, y: -190}
   m_SizeDelta: {x: 1000.00024, y: 90.16188}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2657949240165227059
+--- !u!222 &2453901115167326137
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240165227056}
+  m_GameObject: {fileID: 5180732983298235677}
   m_CullTransparentMesh: 0
---- !u!114 &2657949240165227058
+--- !u!114 &1045823931027010758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240165227056}
+  m_GameObject: {fileID: 5180732983298235677}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -338,7 +339,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2657949240305192426
+--- !u!1 &5781258641319121875
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,10 +347,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2657949240305192427}
-  - component: {fileID: 2657949240305192421}
-  - component: {fileID: 2657949240305192420}
-  - component: {fileID: 2657949240305192422}
+  - component: {fileID: 319829604738930328}
+  - component: {fileID: 3669450842336996060}
+  - component: {fileID: 8984026101073104888}
+  - component: {fileID: 7054448198039023208}
   m_Layer: 8
   m_Name: healthbar
   m_TagString: Untagged
@@ -357,40 +358,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2657949240305192427
+--- !u!224 &319829604738930328
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240305192426}
+  m_GameObject: {fileID: 5781258641319121875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2657949240165227057}
+  m_Father: {fileID: 5349127194931660315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -0}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 1000.00024, y: 90.16188}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2657949240305192421
+--- !u!222 &3669450842336996060
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240305192426}
+  m_GameObject: {fileID: 5781258641319121875}
   m_CullTransparentMesh: 0
---- !u!114 &2657949240305192420
+--- !u!114 &8984026101073104888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240305192426}
+  m_GameObject: {fileID: 5781258641319121875}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -413,20 +414,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2657949240305192422
+--- !u!114 &7054448198039023208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657949240305192426}
+  m_GameObject: {fileID: 5781258641319121875}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de7c9ede43244e34781a357997d0a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showWhenMaxHealth: 0
   healthSystem: {fileID: 2657949239071962300}
-  healthImage: {fileID: 2657949240305192420}
+  backgroundImage: {fileID: 1045823931027010758}
+  healthImage: {fileID: 8984026101073104888}
   lerpSpeed: 1.75
 --- !u!1001 &4946503416843492201
 PrefabInstance:
