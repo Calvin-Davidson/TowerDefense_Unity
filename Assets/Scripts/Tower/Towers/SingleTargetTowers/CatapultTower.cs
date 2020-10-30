@@ -14,7 +14,6 @@ public class CatapultTower : SingleTargetTower
 
     protected override void AttackAnimation()
     {
-        Debug.Log("swing");
         animator.SetBool(_swing, true);
     }
 }

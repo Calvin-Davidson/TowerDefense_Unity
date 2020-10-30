@@ -7,14 +7,15 @@ public class HealthSystem : MonoBehaviour
 {
     public UnityEvent onTakeDamage;
     public UnityEvent onDie;
-    
+
     [SerializeField] protected float startingHealth = 100;
     protected float CurrentHealth;
-    
+
     void Awake()
     {
         CurrentHealth = startingHealth;
     }
+
     public virtual void TakeDamage(float amount)
     {
         CurrentHealth -= amount;
@@ -26,6 +27,7 @@ public class HealthSystem : MonoBehaviour
     {
         return this.CurrentHealth;
     }
+
     public float GetStartingHealth()
     {
         return this.startingHealth;
